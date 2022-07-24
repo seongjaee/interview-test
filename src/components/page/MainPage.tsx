@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "components/ui/Button";
 import { useNavigate } from "react-router-dom";
+import NavBar from "components/ui/NavBar";
 
 const PageContainer = styled.div`
   margin: 0 5rem;
@@ -25,21 +26,24 @@ type Props = {};
 function MainPage({}: Props) {
   const navigate = useNavigate();
   return (
-    <PageContainer>
-      <Title>제목</Title>
-      <ButtonContainer>
-        <Button
-          label="시작하기"
-          type="primary"
-          onClick={() => navigate("test")}
-        ></Button>
-        <Button
-          label="질문 목록 보기"
-          type="secondary"
-          onClick={() => navigate("questions")}
-        ></Button>
-      </ButtonContainer>
-    </PageContainer>
+    <>
+      <NavBar />
+      <PageContainer>
+        <Title>제목</Title>
+        <ButtonContainer>
+          <Button
+            label="시작하기"
+            type="primary"
+            onClick={() => navigate("test")}
+          ></Button>
+          <Button
+            label="질문 목록 보기"
+            type="secondary"
+            onClick={() => navigate("questions")}
+          ></Button>
+        </ButtonContainer>
+      </PageContainer>
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ import { ICard } from "types";
 import Button from "components/ui/Button";
 import QuestionCard from "components/ui/QuestionCard";
 import HomeButton from "components/ui/HomeButton";
+import NavBar from "components/ui/NavBar";
 
 const PageContainer = styled.div`
   margin: 2rem 12rem;
@@ -13,12 +14,6 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-`;
-
-const HomeButtonContainer = styled.div`
-  width: 42rem;
-  display: flex;
-  justify-content: left;
 `;
 
 const StyledH2 = styled.h2`
@@ -67,33 +62,33 @@ function TestPage({ cards }: Props) {
   };
 
   return (
-    <PageContainer>
-      <HomeButtonContainer>
-        <HomeButton />
-      </HomeButtonContainer>
-      <StyledH2>다음 질문에 대답해주세요</StyledH2>
-      {cards.length !== 0 && (
-        <>
-          <CardContainer>
-            <QuestionCard card={cards[questionIndex]}></QuestionCard>
-          </CardContainer>
-          <EmptyBox />
-        </>
-      )}
-      <ButtonContainer>
-        <Button
-          label="이 질문은 나중에 다시 보기"
-          type="secondary"
-          onClick={handleClickPassButton}
-          width="19rem"
-        ></Button>
-        <Button
-          label={`다음 질문 ( ${questionIndex + 1} / ${cards.length} )`}
-          onClick={handleClickNextButton}
-          width="19rem"
-        ></Button>
-      </ButtonContainer>
-    </PageContainer>
+    <>
+      <NavBar />
+      <PageContainer>
+        <StyledH2>다음 질문에 대답해주세요</StyledH2>
+        {cards.length !== 0 && (
+          <>
+            <CardContainer>
+              <QuestionCard card={cards[questionIndex]}></QuestionCard>
+            </CardContainer>
+            <EmptyBox />
+          </>
+        )}
+        <ButtonContainer>
+          <Button
+            label="이 질문은 나중에 다시 보기"
+            type="secondary"
+            onClick={handleClickPassButton}
+            width="19rem"
+          ></Button>
+          <Button
+            label={`다음 질문 ( ${questionIndex + 1} / ${cards.length} )`}
+            onClick={handleClickNextButton}
+            width="19rem"
+          ></Button>
+        </ButtonContainer>
+      </PageContainer>
+    </>
   );
 }
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import QuestionList from "components/ui/QuestionList";
-import { getQuestionList, queryDatabase } from "api/api";
-import HomeButton from "components/ui/HomeButton";
 import { ICard } from "types";
+import NavBar from "components/ui/NavBar";
+import { useNavigate } from "react-router-dom";
 
 const PageContainer = styled.div`
   margin: 2rem 10rem;
@@ -33,12 +33,21 @@ interface DataPageProps {
 }
 
 function DataPage({ cards }: DataPageProps) {
+  const navigate = useNavigate();
   return (
-    <PageContainer>
-      <HomeButton />
-      <QuestionList cards={cards}></QuestionList>
-      <AddButton onClick={() => {}}>질문 추가하기</AddButton>
-    </PageContainer>
+    <>
+      <NavBar />
+      <PageContainer>
+        <QuestionList cards={cards}></QuestionList>
+        <AddButton
+          onClick={() => {
+            navigate("/form");
+          }}
+        >
+          질문 추가하기
+        </AddButton>
+      </PageContainer>
+    </>
   );
 }
 
