@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "components/page/MainPage";
 import DataPage from "components/page/DataPage";
 import TestPage from "components/page/TestPage";
+import FormPage from "components/page/FormPage";
 import { getQuestionList } from "api/api";
 import { ICard } from "types";
 
@@ -21,6 +22,7 @@ function App() {
         <Route index element={<MainPage />}></Route>
         <Route path="questions" element={<DataPage cards={cards} />}></Route>
         <Route path="test" element={<TestPage cards={cards} />}></Route>
+        <Route path="form" element={<FormPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
