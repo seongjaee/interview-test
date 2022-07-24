@@ -9,3 +9,9 @@ export interface ICard {
   question: string;
   tags: ITags[];
 }
+
+export interface IPage {
+  Title: { title: { text: { content: string } }[] };
+  Question: { rich_text: { text: { content: string } }[] };
+  Category: { multi_select: { name: string }[] };
+}

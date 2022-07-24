@@ -1,5 +1,9 @@
-export const queryDatabase = async () => {
-  return await fetch("https://my-notion-worker.seongjaee12.workers.dev/");
+import { IPage } from "types";
+
+const url = "https://my-notion-worker.seongjaee12.workers.dev/";
+
+const queryDatabase = async () => {
+  return await fetch(url);
 };
 
 export const getQuestionList = async () => {
@@ -14,4 +18,12 @@ export const getQuestionList = async () => {
     question: page.properties.Question.rich_text[0]?.plain_text,
   }));
   return questionList;
+};
+
+export const createPage = async (payload: IPage) => {
+  const init = {
+    method: "POST",
+    body: JSON.stringify(payload),
+  };
+  return await fetch(url, init);
 };
