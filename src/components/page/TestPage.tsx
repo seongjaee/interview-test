@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as RightArrowSvg } from "icons/RightArrow.svg";
-import { ReactComponent as LeftArrowSvg } from "icons/LeftArrow.svg";
 import { ICard } from "types";
 import Button from "components/ui/Button";
 import QuestionCard from "components/ui/QuestionCard";
-import HomeButton from "components/ui/HomeButton";
 import NavBar from "components/ui/NavBar";
+import { useNavigate } from "react-router-dom";
 
 const PageContainer = styled.div`
   margin: 2rem 12rem;
@@ -42,18 +40,18 @@ interface Props {
 
 function TestPage({ cards }: Props) {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [randomCards, setRandomCards] = useState<ICard[]>([]);
+
+  useEffect(() => {
+    const randoms = [...cards].sort(() => Math.random() - 0.5);
+    const length = randoms.length >= 10 ? 10 : randoms.length;
+    setRandomCards(randoms.slice(0, length));
+  }, [cards]);
+
+  const navigate = useNavigate();
 
   const handleClickNextButton = () => {
-    if (questionIndex == cards.length - 1) {
-      // 결과 페이지로 넘어가기
-      return;
-    }
-    setQuestionIndex((prev) => ++prev);
-    console.log(questionIndex);
-  };
-
-  const handleClickPassButton = () => {
-    if (questionIndex == cards.length - 1) {
+    if (questionIndex == randomCards.length - 1) {
       // 결과 페이지로 넘어가기
       return;
     }
@@ -66,23 +64,23 @@ function TestPage({ cards }: Props) {
       <NavBar />
       <PageContainer>
         <StyledH2>다음 질문에 대답해주세요</StyledH2>
-        {cards.length !== 0 && (
+        {randomCards.length !== 0 && (
           <>
             <CardContainer>
-              <QuestionCard card={cards[questionIndex]}></QuestionCard>
+              <QuestionCard card={randomCards[questionIndex]}></QuestionCard>
             </CardContainer>
             <EmptyBox />
           </>
         )}
         <ButtonContainer>
           <Button
-            label="이 질문은 나중에 다시 보기"
+            label="테스트 종료"
             type="secondary"
-            onClick={handleClickPassButton}
+            onClick={() => navigate("/")}
             width="19rem"
           ></Button>
           <Button
-            label={`다음 질문 ( ${questionIndex + 1} / ${cards.length} )`}
+            label={`다음 질문 ( ${questionIndex + 1} / ${randomCards.length} )`}
             onClick={handleClickNextButton}
             width="19rem"
           ></Button>

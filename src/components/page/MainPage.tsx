@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "components/ui/NavBar";
 
 const PageContainer = styled.div`
-  margin: 0 5rem;
+  margin: 6rem 5rem;
 `;
 
 const ButtonContainer = styled.div`
@@ -14,6 +14,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 6rem;
 `;
 
 const Title = styled.h1`
@@ -27,7 +28,6 @@ function MainPage({}: Props) {
   const navigate = useNavigate();
   return (
     <>
-      <NavBar />
       <PageContainer>
         <Title>제목</Title>
         <ButtonContainer>

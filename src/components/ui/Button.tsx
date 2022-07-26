@@ -12,11 +12,15 @@ const StyledButton = styled.div<{
   border: 1px solid #2f3437;
   border-radius: 3px;
   color: ${(props) => (props.type === "primary" ? "#ecedec" : "#2f3437")};
-
+  user-select: none;
   cursor: pointer;
   font-size: 1.2rem;
   background-color: ${(props) =>
-    props.type === "primary" ? "#2f3437" : "#e9e9e7"};
+    props.type === "primary" ? "#2f3437" : "none"};
+  :hover {
+    background-color: ${(props) =>
+      props.type === "primary" ? "#161819" : "#deded9"};
+  }
 `;
 
 type Props = {

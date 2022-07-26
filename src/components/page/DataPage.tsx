@@ -4,24 +4,26 @@ import QuestionList from "components/ui/QuestionList";
 import { ICard } from "types";
 import NavBar from "components/ui/NavBar";
 import { useNavigate } from "react-router-dom";
+import PageTitle from "components/ui/PageTitle";
 
 const PageContainer = styled.div`
-  margin: 2rem 10rem;
+  margin: 1rem 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
 `;
 
 const AddButton = styled.div`
   width: 42rem;
-  height: 4rem;
+  height: 3.4rem;
+  margin-top: 2rem;
   background-color: #2f3437;
   border-radius: 3px;
   color: #faf9f8;
   text-align: center;
   font-size: 1.2rem;
-  line-height: 4rem;
+  line-height: 3.4rem;
+  user-select: none;
   cursor: pointer;
   :hover {
     background-color: #161819;
@@ -38,6 +40,7 @@ function DataPage({ cards }: DataPageProps) {
     <>
       <NavBar />
       <PageContainer>
+        <PageTitle label="질문 목록" />
         <QuestionList cards={cards}></QuestionList>
         <AddButton
           onClick={() => {

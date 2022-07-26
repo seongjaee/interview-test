@@ -4,9 +4,10 @@ import { ICard } from "types";
 
 const Card = styled.article`
   background-color: #faf9f8;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 12px 24px;
+  /* box-shadow: rgba(149, 157, 165, 0.1) 0px 12px 24px; */
   padding: 1rem;
   font-size: 1rem;
+  border: 2px solid #ccc;
   border-radius: 3px;
   width: 40rem;
   ::selection {
@@ -26,6 +27,10 @@ const Token = styled.span`
   display: inline-block;
   background: #f5e0e9;
   margin-bottom: 0.5rem;
+  ::selection {
+    color: #ffffff;
+    background: #2d2b2f;
+  }
 `;
 
 interface QuestionCardProps {

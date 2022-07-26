@@ -6,8 +6,7 @@ const StyledHomeButton = styled.div`
   width: 10rem;
   height: 4rem;
   cursor: pointer;
-  // 임시
-  background-color: #310000;
+  font-size: 2rem;
 `;
 
 const ImageContainer = styled.span`
