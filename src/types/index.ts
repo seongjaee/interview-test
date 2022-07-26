@@ -13,5 +13,5 @@ export interface ICard {
 export interface IPage {
   Title: { title: { text: { content: string } }[] };
   Question: { rich_text: { text: { content: string } }[] };
-  Category: { multi_select: { name: string }[] };
+  Tags: { multi_select: { name: string }[] };
 }
