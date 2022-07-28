@@ -28,7 +28,7 @@ const DeleteButton = styled.div`
   border-radius: 3px;
   cursor: pointer;
   :hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `;
 

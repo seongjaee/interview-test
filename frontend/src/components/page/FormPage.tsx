@@ -7,6 +7,9 @@ import { IPage } from "../../types";
 import { createPage } from "api/api";
 import { useNavigate } from "react-router-dom";
 import PageTitle from "components/ui/PageTitle";
+import { ReactComponent as TextIcon } from "../../icons/text.svg";
+import { ReactComponent as TitleIcon } from "../../icons/title.svg";
+import { ReactComponent as TagIcon } from "../../icons/tag.svg";
 
 const PageContainer = styled.div`
   margin: 1rem 10rem;
@@ -17,6 +20,13 @@ const PageContainer = styled.div`
 
 const InputContainer = styled.div`
   margin-bottom: 1rem;
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    gap: 0.4rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -68,15 +78,21 @@ function FormPage({}: Props) {
       <PageContainer>
         <PageTitle label="질문 추가하기" />
         <InputContainer>
-          <div>타이틀</div>
+          <div>
+            <TitleIcon></TitleIcon>타이틀
+          </div>
           <InputBox value={title} onChange={handleTitleChange} />
         </InputContainer>
         <InputContainer>
-          <div>질문</div>
+          <div>
+            <TextIcon></TextIcon>질문
+          </div>
           <InputBox value={question} onChange={handleQuestionChange} />
         </InputContainer>
         <InputContainer>
-          <div>태그</div>
+          <div>
+            <TagIcon></TagIcon>태그
+          </div>
           <InputBox value={tag} onChange={handleTagChange} />
         </InputContainer>
 

@@ -11,7 +11,7 @@ const StyledButton = styled.div<{
   height: 3rem;
   border: 1px solid #2f3437;
   border-radius: 3px;
-  color: ${(props) => (props.type === "primary" ? "#ecedec" : "#2f3437")};
+  color: ${(props) => (props.type === "primary" ? "#f5f4f1" : "#2f3437")};
   user-select: none;
   cursor: pointer;
   font-size: 1.2rem;
