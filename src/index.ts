@@ -20,12 +20,17 @@ export interface Env {
 }
 
 const url = `https://api.notion.com/v1`;
-const headers = {
+
+const reqHeaders = {
   Authorization: `Bearer ${NOTION_API_KEY}`,
   "Notion-Version": "2022-02-22",
   "content-type": "application/json;charset=UTF-8",
+};
+
+const resHeaders = {
+  "content-type": "application/json;charset=UTF-8",
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET,HEAD,POST,init",
+  "Access-Control-Allow-Methods": "GET,HEAD,POST,PATCH,OPTIONS",
 };
 
 async function gatherResponse(response: Response) {
@@ -35,11 +40,11 @@ async function gatherResponse(response: Response) {
 async function handleRequest() {
   const init = {
     method: "POST",
-    headers,
+    headers: reqHeaders,
   };
   const response = await fetch(url + `/databases/${DATABASE_ID}/query`, init);
   const results = await gatherResponse(response);
-  return new Response(results, init);
+  return new Response(results, { headers: resHeaders });
 }
 
 async function handlePostRequest(request: Request) {
@@ -50,14 +55,31 @@ async function handlePostRequest(request: Request) {
   };
   const init = {
     method: "POST",
-    headers,
+    headers: reqHeaders,
     body: JSON.stringify(data),
   };
   const response = await fetch(url + `/pages`, init);
   if (response.status === 200) {
-    return new Response(`Success`);
+    return new Response(`Success`, { headers: resHeaders });
   } else {
-    return new Response(`Failed`);
+    return new Response(`Failed`, { headers: resHeaders });
+  }
+}
+
+async function handlePatchRequest(request: Request) {
+  const req: { pageId: string } = await request.json();
+  const { pageId } = req;
+
+  const init = {
+    method: "PATCH",
+    headers: reqHeaders,
+    body: JSON.stringify({ archived: true }),
+  };
+  const response = await fetch(url + `/pages/${pageId}`, init);
+  if (response.status === 200) {
+    return new Response(`Success`, { headers: resHeaders });
+  } else {
+    return new Response(`Failed`, { headers: resHeaders });
   }
 }
 
@@ -67,8 +89,8 @@ addEventListener("fetch", (event) => {
 
   if (request.method === "POST") {
     return event.respondWith(handlePostRequest(request));
-  } else if (request.method === "GET") {
-    return event.respondWith(handleRequest());
+  } else if (request.method === "PATCH") {
+    return event.respondWith(handlePatchRequest(request));
   }
   return event.respondWith(handleRequest());
 });
