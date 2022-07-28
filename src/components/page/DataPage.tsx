@@ -5,6 +5,7 @@ import { ICard } from "types";
 import NavBar from "components/ui/NavBar";
 import { useNavigate } from "react-router-dom";
 import PageTitle from "components/ui/PageTitle";
+import { getQuestionList } from "api/api";
 
 const PageContainer = styled.div`
   margin: 1rem 10rem;
@@ -34,14 +35,28 @@ interface DataPageProps {
   cards: ICard[];
 }
 
-function DataPage({ cards }: DataPageProps) {
+function DataPage() {
   const navigate = useNavigate();
+  const [cards, setCards] = useState<ICard[]>([]);
+
+  const onDeletePage = () => {
+    getQuestionList().then((questionList) => {
+      setCards(questionList);
+    });
+  };
+
+  useEffect(() => {
+    getQuestionList().then((questionList) => {
+      setCards(questionList);
+      console.log(questionList);
+    });
+  }, []);
   return (
     <>
       <NavBar />
       <PageContainer>
         <PageTitle label="질문 목록" />
-        <QuestionList cards={cards}></QuestionList>
+        <QuestionList cards={cards} onDeletePage={onDeletePage}></QuestionList>
         <AddButton
           onClick={() => {
             navigate("/form");

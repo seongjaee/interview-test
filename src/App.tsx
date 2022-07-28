@@ -10,18 +10,18 @@ import { getQuestionList } from "api/api";
 import { ICard } from "types";
 
 function App() {
-  const [cards, setCards] = useState<ICard[]>([]);
-  useEffect(() => {
-    getQuestionList().then((questionList) => {
-      setCards(questionList);
-    });
-  }, []);
+  // const [cards, setCards] = useState<ICard[]>([]);
+  // useEffect(() => {
+  //   getQuestionList().then((questionList) => {
+  //     setCards(questionList);
+  //   });
+  // }, []);
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<MainPage />}></Route>
-        <Route path="questions" element={<DataPage cards={cards} />}></Route>
-        <Route path="test" element={<TestPage cards={cards} />}></Route>
+        <Route path="questions" element={<DataPage />}></Route>
+        <Route path="test" element={<TestPage />}></Route>
         <Route path="form" element={<FormPage />}></Route>
       </Routes>
     </BrowserRouter>

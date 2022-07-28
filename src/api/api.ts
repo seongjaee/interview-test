@@ -27,3 +27,11 @@ export const createPage = async (payload: IPage) => {
   };
   return await fetch(url, init);
 };
+
+export const deletePage = async (pageId: string) => {
+  const init = {
+    method: "PATCH",
+    body: JSON.stringify({ pageId }),
+  };
+  return await fetch(url, init);
+};

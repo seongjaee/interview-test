@@ -4,10 +4,9 @@ import { ICard } from "types";
 
 const Card = styled.article`
   background-color: #faf9f8;
-  /* box-shadow: rgba(149, 157, 165, 0.1) 0px 12px 24px; */
   padding: 1rem;
   font-size: 1rem;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 3px;
   width: 40rem;
   ::selection {

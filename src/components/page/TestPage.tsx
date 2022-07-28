@@ -5,6 +5,7 @@ import Button from "components/ui/Button";
 import QuestionCard from "components/ui/QuestionCard";
 import NavBar from "components/ui/NavBar";
 import { useNavigate } from "react-router-dom";
+import { getQuestionList } from "api/api";
 
 const PageContainer = styled.div`
   margin: 2rem 12rem;
@@ -38,15 +39,9 @@ interface Props {
   cards: ICard[];
 }
 
-function TestPage({ cards }: Props) {
+function TestPage() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [randomCards, setRandomCards] = useState<ICard[]>([]);
-
-  useEffect(() => {
-    const randoms = [...cards].sort(() => Math.random() - 0.5);
-    const length = randoms.length >= 10 ? 10 : randoms.length;
-    setRandomCards(randoms.slice(0, length));
-  }, [cards]);
 
   const navigate = useNavigate();
 
@@ -58,6 +53,14 @@ function TestPage({ cards }: Props) {
     setQuestionIndex((prev) => ++prev);
     console.log(questionIndex);
   };
+
+  useEffect(() => {
+    getQuestionList().then((questionList) => {
+      const randoms = [...questionList].sort(() => Math.random() - 0.5);
+      const length = randoms.length >= 10 ? 10 : randoms.length;
+      setRandomCards(randoms.slice(0, length));
+    });
+  }, []);
 
   return (
     <>
