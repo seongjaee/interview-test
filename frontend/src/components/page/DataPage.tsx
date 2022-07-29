@@ -6,6 +6,7 @@ import NavBar from "components/ui/NavBar";
 import { useNavigate } from "react-router-dom";
 import PageTitle from "components/ui/PageTitle";
 import { getQuestionList } from "api/api";
+import LoadingSpinner from "components/ui/LoadingSpinner";
 
 const PageContainer = styled.div`
   margin: 1rem 10rem;
@@ -31,39 +32,53 @@ const AddButton = styled.div`
   }
 `;
 
-interface DataPageProps {
-  cards: ICard[];
-}
-
 function DataPage() {
   const navigate = useNavigate();
   const [cards, setCards] = useState<ICard[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const onDeletePage = () => {
+    setIsLoading(true);
     getQuestionList().then((questionList) => {
       setCards(questionList);
+      setIsLoading(false);
     });
   };
 
   useEffect(() => {
-    getQuestionList().then((questionList) => {
-      setCards(questionList);
-      console.log(questionList);
-    });
+    getQuestionList()
+      .then((questionList) => {
+        setCards(questionList);
+        console.log(questionList);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("데이터 불러오기에 실패했습니다");
+      });
   }, []);
   return (
     <>
       <NavBar />
       <PageContainer>
         <PageTitle label="질문 목록" />
-        <QuestionList cards={cards} onDeletePage={onDeletePage}></QuestionList>
-        <AddButton
-          onClick={() => {
-            navigate("/form");
-          }}
-        >
-          질문 추가하기
-        </AddButton>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <QuestionList
+              cards={cards}
+              onDeletePage={onDeletePage}
+            ></QuestionList>
+            <AddButton
+              onClick={() => {
+                navigate("/form");
+              }}
+            >
+              질문 추가하기
+            </AddButton>
+          </>
+        )}
       </PageContainer>
     </>
   );
