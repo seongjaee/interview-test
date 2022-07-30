@@ -1,10 +1,14 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.div<{
   type: "primary" | "secondary";
   width: string;
 }>`
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   line-height: 3rem;
   width: ${(props) => props.width};
@@ -23,17 +27,24 @@ const StyledButton = styled.div<{
   }
 `;
 
-type Props = {
+interface ButtonProps {
   label?: string;
   type?: "primary" | "secondary";
   width?: string;
   onClick: () => void;
-};
+  children?: ReactNode;
+}
 
-function Button({ label, width = "15rem", type = "primary", onClick }: Props) {
+function Button({
+  label,
+  width = "15rem",
+  type = "primary",
+  onClick,
+  children,
+}: ButtonProps) {
   return (
     <StyledButton onClick={onClick} type={type} width={width}>
-      {label}
+      {children} {label}
     </StyledButton>
   );
 }
