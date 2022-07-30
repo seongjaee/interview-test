@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ICard } from "types";
 import Button from "components/ui/Button";
 import QuestionCard from "components/ui/QuestionCard";
 import NavBar from "components/ui/NavBar";
+import LoadingSpinner from "components/ui/LoadingSpinner";
+import Camera from "components/ui/Camera";
 import { useNavigate } from "react-router-dom";
 import { getQuestionList } from "api/api";
-import LoadingSpinner from "components/ui/LoadingSpinner";
+import { ICard } from "types";
 
 const PageContainer = styled.div`
   margin: 1rem 12rem;
@@ -25,11 +26,6 @@ const CardContainer = styled.div`
   margin: 1rem 0;
 `;
 
-const EmptyBox = styled.div`
-  width: 20rem;
-  height: 20rem;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -40,6 +36,7 @@ function TestPage() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [randomCards, setRandomCards] = useState<ICard[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [mediaReady, setMediaReady] = useState(false);
 
   const navigate = useNavigate();
 
@@ -81,9 +78,9 @@ function TestPage() {
                     card={randomCards[questionIndex]}
                   ></QuestionCard>
                 </CardContainer>
-                <EmptyBox />
               </>
             )}
+            <Camera onMediaReady={() => setMediaReady(true)} />
             <ButtonContainer>
               <Button
                 label="테스트 종료"
