@@ -154,11 +154,11 @@
 
 ## 서비스 화면 :computer:
 
-<img src="README.asset/Screen_Animation.gif" alt="Screen_Animation" style="zoom:67%;" />
+<img src="README.asset/Screen_Animation.gif" alt="Screen_Animation" style="zoom:40%;" />
 
 ### **메인 페이지**
 
-<img src="README.asset/main_page.png" alt="main_page" style="zoom: 33%;" />
+<img src="README.asset/main_page.png" alt="main_page" style="zoom: 20%;" />
 
 - "시작하기" 버튼을 눌러 테스트를 시작할 수 있습니다.
 - "질문 목록 보기" 버튼을 눌러 자신이 저장한 질문 목록을 확인할 수 있습니다.
@@ -167,7 +167,7 @@
 
 ### **질문 목록 페이지**
 
-<img src="README.asset/data_page.png" alt="data_page" style="zoom:67%;" />
+<img src="README.asset/data_page.png" alt="data_page" style="zoom:40%;" />
 
 - 자신의 Notion에 저장한 질문 목록을 확인할 수 있습니다.
 - 휴지통 아이콘을 클릭해 질문을 삭제할 수 있습니다.
@@ -176,7 +176,7 @@
 
 ### **질문 추가 페이지**
 
-<img src="README.asset/form_page.png" alt="form_page" style="zoom:67%;" />
+<img src="README.asset/form_page.png" alt="form_page" style="zoom:40%;" />
 
 - 새로운 질문을 작성할 수 있습니다. 작성한 내용은 Notion에 저장됩니다.
 - 태그 인풋에서 엔터를 누르면 태그가 입력됩니다.
@@ -186,7 +186,7 @@
 
 ### **테스트 페이지**
 
-<img src="README.asset/test_page.jpg" alt="test_page" style="zoom:33%;" />
+<img src="README.asset/test_page.jpg" alt="test_page" style="zoom:20%;" />
 
 - 자신이 작성한 질문 중 무작위로 질문이 화면에 나타납니다.
 - 자신이 답변하는 모습을 녹화한 뒤 저장할 수 있습니다.
