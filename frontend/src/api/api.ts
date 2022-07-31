@@ -1,6 +1,6 @@
 import { IPage } from "types";
 
-const url = "https://my-notion-worker.seongjaee12.workers.dev/";
+const url = process.env.REACT_APP_WORKER_URL as string;
 
 const queryDatabase = async () => {
   return await fetch(url);
