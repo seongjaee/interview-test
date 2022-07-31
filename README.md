@@ -38,7 +38,7 @@
   - `Tags` : 다중 선택 속성
   - `Question` : 텍스트 속성
 
-  <img src="README.asset/notion_table.png" alt="notion_table" style="zoom: 33%;" />
+  <img src="README.asset/notion_table.png" alt="notion_table" width="520px" />
 
 
 
@@ -98,7 +98,7 @@
 
   publish가 끝나면 자신의 Workers 대시보드에 notion-worker라는 Worker가 생긴 걸 확인할 수 있습니다.
 
-  <img src="README.asset/Cloudflare_worker03.png" alt="Cloudflare_worker03" style="zoom:20%;" />
+  <img src="README.asset/Cloudflare_worker03.png" alt="Cloudflare_worker03" width="520px" />
 
 
 
@@ -130,7 +130,7 @@
 
   작성하는 URL은 자신의 Cloudflare Worker에서도 확인할 수 있습니다.
 
-  <img src="README.asset/Cloudflare_worker02.png" alt="Cloudflare_worker02" style="zoom:8%;" />
+  <img src="README.asset/Cloudflare_worker02.png" alt="Cloudflare_worker02" width="520px" />
 
 - `npm start` 로 실행합니다.
 
@@ -138,7 +138,7 @@
   $ npm start
   ```
 
-  <img src="README.asset/main_page.png" alt="main_page" style="zoom:10%;" />
+  <img src="README.asset/main_page.png" alt="main_page" width="520px" />
 
 
 
@@ -146,7 +146,7 @@
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&color=37352f) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&color=37352f) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&color=37352f) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&color=37352f)
 
-<img src="README.asset/architecture.png" alt="architecture" style="zoom: 10%;" />
+<img src="README.asset/architecture.png" alt="architecture" width="400px" />
 
 
 
@@ -154,11 +154,11 @@
 
 ## 서비스 화면 :computer:
 
-<img src="README.asset/Screen_Animation.gif" alt="Screen_Animation" style="zoom:20%;" />
+<img src="README.asset/Screen_Animation.gif" alt="Screen_Animation" width="520px" />
 
 ### **메인 페이지**
 
-<img src="README.asset/main_page.png" alt="main_page" style="zoom: 10%;" />
+<img src="README.asset/main_page.png" alt="main_page" width="520px" />
 
 - "시작하기" 버튼을 눌러 테스트를 시작할 수 있습니다.
 - "질문 목록 보기" 버튼을 눌러 자신이 저장한 질문 목록을 확인할 수 있습니다.
@@ -167,7 +167,7 @@
 
 ### **질문 목록 페이지**
 
-<img src="README.asset/data_page.png" alt="data_page" style="zoom:20%;" />
+<img src="README.asset/data_page.png" alt="data_page" width="520px" />
 
 - 자신의 Notion에 저장한 질문 목록을 확인할 수 있습니다.
 - 휴지통 아이콘을 클릭해 질문을 삭제할 수 있습니다.
@@ -176,7 +176,7 @@
 
 ### **질문 추가 페이지**
 
-<img src="README.asset/form_page.png" alt="form_page" style="zoom:20%;" />
+<img src="README.asset/form_page.png" alt="form_page" width="520px" />
 
 - 새로운 질문을 작성할 수 있습니다. 작성한 내용은 Notion에 저장됩니다.
 - 태그 인풋에서 엔터를 누르면 태그가 입력됩니다.
@@ -186,7 +186,7 @@
 
 ### **테스트 페이지**
 
-<img src="README.asset/test_page.jpg" alt="test_page" style="zoom:10%;" />
+<img src="README.asset/test_page.jpg" alt="test_page" width="520px" />
 
 - 자신이 작성한 질문 중 무작위로 질문이 화면에 나타납니다.
 - 자신이 답변하는 모습을 녹화한 뒤 저장할 수 있습니다.
