@@ -10,7 +10,7 @@ import { getQuestionList } from "api/api";
 import { ICard } from "types";
 
 const PageContainer = styled.div`
-  margin: 1rem 12rem;
+  margin: 0 12rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,7 @@ const PageContainer = styled.div`
 const StyledH2 = styled.h2`
   font-size: 1.8rem;
   font-weight: bold;
+  margin: 0.6rem 0;
 `;
 
 const CardContainer = styled.div`

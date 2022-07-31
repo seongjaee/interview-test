@@ -9,7 +9,7 @@ import { getQuestionList } from "api/api";
 import LoadingSpinner from "components/ui/LoadingSpinner";
 
 const PageContainer = styled.div`
-  margin: 1rem 10rem;
+  margin: 0 10rem 1rem 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;

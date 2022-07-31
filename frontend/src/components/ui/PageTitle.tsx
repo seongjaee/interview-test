@@ -8,7 +8,6 @@ const StyledH2 = styled.h2`
 `;
 const TitleContainer = styled.div`
   width: 42rem;
-  margin-bottom: 1rem;
 `;
 
 interface PageTitleProps {
