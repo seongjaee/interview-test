@@ -12,14 +12,14 @@ import { ReactComponent as TitleIcon } from "../../icons/title.svg";
 import { ReactComponent as TagIcon } from "../../icons/tag.svg";
 
 const PageContainer = styled.div`
-  margin: 1rem 10rem;
+  margin: 0 10rem 1rem 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const InputContainer = styled.div`
-  margin-bottom: 1rem;
+  margin: 0.4rem 0 1rem 0;
   div {
     display: flex;
     align-items: center;
@@ -35,6 +35,68 @@ const ButtonContainer = styled.div`
   margin-top: 2rem;
 `;
 
+const TokenContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+const Token = styled.span`
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  background: #f5e0e9;
+  margin-bottom: 0.5rem;
+  ::selection {
+    color: #ffffff;
+    background: #2d2b2f;
+  }
+`;
+
+const DeleteMark = styled.span`
+  margin-left: 5px;
+  display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const BadgeContainer = styled.span`
+  border-radius: 3px;
+  padding: 4px 8px;
+  line-height: 0.8rem;
+  background-color: #d7d8e9;
+  font-size: 0.8rem;
+  font-weight: 600;
+  &:hover ${DeleteMark} {
+    display: inline;
+  }
+  &:hover {
+    cursor: default;
+  }
+`;
+
+interface BadgeProps {
+  label: string;
+  deleteBadge: (i: number) => void;
+  index: number;
+}
+
+function Badge({ label, deleteBadge, index }: BadgeProps) {
+  const onClickDeleteMark = () => {
+    deleteBadge(index);
+  };
+
+  return (
+    <BadgeContainer>
+      {label}
+      <DeleteMark onClick={onClickDeleteMark}>X</DeleteMark>
+    </BadgeContainer>
+  );
+}
+
 type Props = {};
 
 function FormPage({}: Props) {
@@ -44,7 +106,7 @@ function FormPage({}: Props) {
 
   const navigate = useNavigate();
 
-  // const [tagList, setTagList] = useState('');
+  const [tagList, setTagList] = useState<string[]>([]);
 
   const handleTitleChange = (event: any) => {
     setTitle(event.target.value);
@@ -56,13 +118,34 @@ function FormPage({}: Props) {
     setTag(event.target.value);
   };
 
+  const onKeyDown = (event: any) => {
+    if (event.key !== "Enter") {
+      return;
+    }
+    const label = event.target.value.replace(/ /gi, "");
+    console.log(label);
+    if (label.length === 0) {
+      event.target.value = "";
+      return;
+    }
+
+    if (tagList.find((tag) => tag === label)) {
+      setTag("");
+      event.target.value = "";
+      return;
+    }
+
+    setTagList((prev) => [...prev, label]);
+    event.target.value = "";
+    setTag("");
+  };
+
   const handleSubmit = async () => {
     const payload: IPage = {
       Title: { title: [{ text: { content: title } }] },
       Question: { rich_text: [{ text: { content: question } }] },
-      Tags: { multi_select: [{ name: tag }] },
+      Tags: { multi_select: tagList.map((tag) => ({ name: tag })) },
     };
-    // console.log(payload);
     const response = await createPage(payload);
     console.log(response);
     if (response.status == 200) {
@@ -72,6 +155,14 @@ function FormPage({}: Props) {
     }
   };
 
+  const onClickBadgeRemove = (i: number) => {
+    console.log(i);
+    setTagList((prev) => [
+      ...prev.slice(0, i),
+      ...prev.slice(i + 1, prev.length),
+    ]);
+  };
+
   return (
     <>
       <NavBar />
@@ -79,21 +170,38 @@ function FormPage({}: Props) {
         <PageTitle label="질문 추가하기" />
         <InputContainer>
           <div>
-            <TitleIcon></TitleIcon>타이틀
+            <TitleIcon />
+            타이틀
           </div>
           <InputBox value={title} onChange={handleTitleChange} />
         </InputContainer>
         <InputContainer>
           <div>
-            <TextIcon></TextIcon>질문
+            <TextIcon />
+            질문
           </div>
           <InputBox value={question} onChange={handleQuestionChange} />
         </InputContainer>
         <InputContainer>
           <div>
-            <TagIcon></TagIcon>태그
+            <TagIcon />
+            태그
           </div>
-          <InputBox value={tag} onChange={handleTagChange} />
+          <TokenContainer>
+            {tagList.map((tag, idx) => (
+              <Badge
+                deleteBadge={() => onClickBadgeRemove(idx)}
+                label={tag}
+                key={idx}
+                index={idx}
+              />
+            ))}
+          </TokenContainer>
+          <InputBox
+            value={tag}
+            onChange={handleTagChange}
+            onKeyDown={onKeyDown}
+          />
         </InputContainer>
 
         <ButtonContainer>

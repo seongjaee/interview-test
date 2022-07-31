@@ -14,10 +14,13 @@ const StyledInput = styled.input`
 interface InputBoxProps {
   value: string;
   onChange: (event: React.ChangeEvent) => void;
+  onKeyDown?: (event: any) => void;
 }
 
-function InputBox({ value = "", onChange }: InputBoxProps) {
-  return <StyledInput value={value} onChange={onChange} />;
+function InputBox({ value = "", onChange, onKeyDown }: InputBoxProps) {
+  return (
+    <StyledInput value={value} onChange={onChange} onKeyDown={onKeyDown} />
+  );
 }
 
 export default InputBox;
