@@ -2,21 +2,19 @@
 
 ## 목차
 
-- [Interview Test :man_office_worker:](#Interview-Test-:man_office_worker:)
-  * [목차](#목차)
-  * [소개](#소개)
-    + [기능 ✨](#기능-✨) 
-  * [Getting Started :fist_oncoming:](#Getting-Started-:fist_oncoming:)
-    + [1. 프로젝트 다운로드](#1.-프로젝트-다운로드)
-    + [2. Notion 준비하기](#2.-Notion-준비하기)
-    + [3. Worker 만들기](#3.-Worker-만들기)
-    + [4. Frontend 실행하기](#4.-Frontend-실행하기)
-  * [기술 🛠](#기술-🛠)
-  * [서비스 화면 :computer:](#서비스-화면-:computer:)
-    + [메인 페이지](#메인-페이지)
-    + [질문 목록 페이지](#질문-목록-페이지)
-    + [질문 추가 페이지](#질문-추가-페이지)
-    + [테스트 페이지](#테스트-페이지)
+* [소개](#소개)
+  + [기능](#기능) 
+* [Getting Started](#Getting-Started)
+  + [1. 프로젝트 다운로드](#1.-프로젝트-다운로드)
+  + [2. Notion 준비하기](#2.-Notion-준비하기)
+  + [3. Worker 만들기](#3.-Worker-만들기)
+  + [4. Frontend 실행하기](#4.-Frontend-실행하기)
+* [기술](#기술)
+* [서비스 화면](#서비스-화면)
+  + [메인 페이지](#메인-페이지)
+  + [질문 목록 페이지](#질문-목록-페이지)
+  + [질문 추가 페이지](#질문-추가-페이지)
+  + [테스트 페이지](#테스트-페이지)
 
 ---
 
@@ -24,7 +22,7 @@
 
 스스로 준비한 질문을 대답해보는 연습을 위한 면접 연습 서비스입니다.
 
-### 기능 ✨
+### 기능
 
 - 질문 작성, 목록 확인
 - 면접 연습 영상 녹화 및 다운로드
@@ -35,7 +33,7 @@
 
 
 
-## Getting Started :fist_oncoming:
+## Getting Started
 
 > 어플리케이션을 이용하기 위해 [Cloudflare Worker](https://workers.cloudflare.com/) 계정과 [Notion](https://www.notion.so/) 페이지, [Notion API KEY](https://developers.notion.com/)가 필요합니다.
 
@@ -170,7 +168,7 @@
 
 
 
-## 기술 🛠
+## 기술
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&color=37352f) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&color=37352f) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&color=37352f) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&color=37352f)
 
@@ -182,7 +180,7 @@
 
 
 
-## 서비스 화면 :computer:
+## 서비스 화면
 
 <img src="README.asset/Screen_Animation.gif" alt="Screen_Animation" width="520px" />
 
