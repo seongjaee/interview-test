@@ -29,7 +29,7 @@ function MainPage({}: Props) {
   return (
     <>
       <PageContainer>
-        <Title>제목</Title>
+        <Title>Interview Test</Title>
         <ButtonContainer>
           <Button
             label="시작하기"

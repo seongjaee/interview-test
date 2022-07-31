@@ -9,10 +9,6 @@ const Card = styled.article`
   border: 1px solid #ccc;
   border-radius: 3px;
   width: 40rem;
-  ::selection {
-    color: #ffffff;
-    background: #2d2b2f;
-  }
 `;
 const TokenContainer = styled.div`
   display: flex;
@@ -22,14 +18,10 @@ const TokenContainer = styled.div`
 const Token = styled.span`
   font-size: 0.8rem;
   padding: 0.1rem 0.5rem;
-  border-radius: 5px;
+  border-radius: 3px;
   display: inline-block;
   background: #f5e0e9;
   margin-bottom: 0.5rem;
-  ::selection {
-    color: #ffffff;
-    background: #2d2b2f;
-  }
 `;
 
 interface QuestionCardProps {

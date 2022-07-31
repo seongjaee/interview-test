@@ -40,20 +40,6 @@ const TokenContainer = styled.div`
   gap: 0.5rem;
 `;
 
-const Token = styled.span`
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.1rem 0.5rem;
-  border-radius: 5px;
-  display: inline-block;
-  background: #f5e0e9;
-  margin-bottom: 0.5rem;
-  ::selection {
-    color: #ffffff;
-    background: #2d2b2f;
-  }
-`;
-
 const DeleteMark = styled.span`
   margin-left: 5px;
   display: none;
@@ -67,9 +53,9 @@ const BadgeContainer = styled.span`
   border-radius: 3px;
   padding: 4px 8px;
   line-height: 0.8rem;
-  background-color: #d7d8e9;
+  background: #f5e0e9;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 400;
   &:hover ${DeleteMark} {
     display: inline;
   }
