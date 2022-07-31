@@ -93,8 +93,6 @@
 - wrangler publish를 진행합니다.
 
   ```bash
-  $ cd ..
-  
   $ wrangler publish
   ```
 
@@ -144,16 +142,11 @@
 
 
 
-## 기술 스택 🛠
+## 기술 🛠
 
-- React
-- TypeScript
-- Notion API
-- Cloudflare Workers
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&color=37352f) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&color=37352f) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&color=37352f) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&color=37352f)
 
-## 아키텍처 :wrench:
-
-<img src="README.asset/architecture.png" alt="architecture" style="zoom: 25%;" />
+<img src="README.asset/architecture.png" alt="architecture" style="zoom: 20%;" />
 
 
 
